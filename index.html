@@ -3,98 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>جيم [اسم الجيم] - لياقة، مساج، وعلاج طبيعي</title>
+<title>PUMP GYM - جيم، مساج، وحجامة</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
-  body { background: #0f0f0f; color: #fff; line-height: 1.7; }
+  body { background: #0a0a0a; color: #fff; line-height: 1.7; scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; }
 
   /* الهيدر */
   header {
-    background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
-    padding: 20px 40px;
+    background: rgba(10,10,10,.95);
+    padding: 15px 40px;
     display: flex; justify-content: space-between; align-items: center;
     position: sticky; top: 0; z-index: 100;
     border-bottom: 2px solid #ff6b00;
+    backdrop-filter: blur(10px);
   }
-  .logo { font-size: 26px; font-weight: bold; color: #ff6b00; }
-  nav a { color: #fff; text-decoration: none; margin: 0 15px; transition: .3s; }
+  .logo { font-size: 28px; font-weight: 900; color: #ff6b00; letter-spacing: 2px; }
+  .logo span { color: #fff; }
+  nav a { color: #fff; text-decoration: none; margin: 0 15px; transition: .3s; font-weight: 500; }
   nav a:hover { color: #ff6b00; }
 
   /* الهيرو */
   .hero {
-    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.8)),
-                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600') center/cover;
-    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.85)),
+                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600') center/cover fixed;
+    min-height: 100vh;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
-    text-align: center; padding: 20px;
+    text-align: center; padding: 40px 20px;
   }
-  .hero h1 { font-size: 55px; color: #ff6b00; margin-bottom: 20px; }
-  .hero p { font-size: 22px; margin-bottom: 30px; }
+  .hero h1 {
+    font-size: 80px; font-weight: 900; color: #ff6b00;
+    margin-bottom: 20px; letter-spacing: 3px;
+    text-shadow: 0 0 40px rgba(255,107,0,.5);
+  }
+  .hero .subtitle { font-size: 26px; margin-bottom: 15px; font-weight: 600; }
+  .hero p { font-size: 20px; margin-bottom: 35px; color: #ccc; }
   .btn {
     display: inline-block; padding: 15px 40px; background: #ff6b00;
     color: #fff; text-decoration: none; border-radius: 50px;
-    font-weight: bold; transition: .3s; margin: 5px;
+    font-weight: bold; transition: .3s; margin: 5px; border: none; cursor: pointer;
+    font-size: 16px;
   }
-  .btn:hover { background: #e55f00; transform: scale(1.05); }
+  .btn:hover { background: #e55f00; transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255,107,0,.4); }
 
   /* الأقسام */
   section { padding: 80px 40px; }
   section h2 {
-    text-align: center; font-size: 40px; color: #ff6b00;
-    margin-bottom: 50px; position: relative;
+    text-align: center; font-size: 42px; color: #ff6b00;
+    margin-bottom: 15px; font-weight: 900;
   }
+  .section-sub { text-align: center; color: #999; margin-bottom: 50px; font-size: 18px; }
   section h2::after {
     content: ''; width: 80px; height: 4px; background: #ff6b00;
-    display: block; margin: 15px auto 0;
+    display: block; margin: 15px auto 0; border-radius: 2px;
   }
-
-  /* الأسعار */
-  .prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-  .price-card {
-    background: #1a1a1a; border: 2px solid #333; border-radius: 15px;
-    padding: 40px 25px; text-align: center; transition: .3s;
-  }
-  .price-card:hover { border-color: #ff6b00; transform: translateY(-10px); }
-  .price-card h3 { color: #ff6b00; font-size: 24px; margin-bottom: 20px; }
-  .price-card .price { font-size: 45px; font-weight: bold; margin: 20px 0; }
-  .price-card .price span { font-size: 18px; color: #aaa; }
-  .price-card ul { list-style: none; margin: 25px 0; text-align: right; }
-  .price-card ul li { padding: 8px 0; border-bottom: 1px solid #222; }
-  .price-card ul li::before { content: '✓ '; color: #ff6b00; font-weight: bold; }
 
   /* الخدمات */
   .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
   .service-card {
-    background: #1a1a1a; padding: 35px 25px; border-radius: 15px;
-    text-align: center; border-top: 4px solid #ff6b00;
+    background: linear-gradient(145deg, #1a1a1a, #111);
+    padding: 40px 25px; border-radius: 15px;
+    text-align: center; border: 1px solid #222;
+    transition: .3s;
   }
-  .service-card .icon { font-size: 50px; margin-bottom: 15px; }
-  .service-card h3 { margin-bottom: 15px; color: #ff6b00; }
-  .service-card p { color: #ccc; }
+  .service-card:hover { border-color: #ff6b00; transform: translateY(-8px); }
+  .service-card .icon { font-size: 60px; margin-bottom: 20px; }
+  .service-card h3 { margin-bottom: 12px; color: #ff6b00; font-size: 22px; }
+  .service-card p { color: #bbb; font-size: 15px; }
+
+  /* الأسعار */
+  .prices-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+  .price-card {
+    background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+    border: 2px solid #2a2a2a; border-radius: 15px;
+    padding: 35px 20px; text-align: center; transition: .3s;
+    position: relative;
+  }
+  .price-card:hover { border-color: #ff6b00; transform: translateY(-8px); }
+  .price-card h3 { color: #fff; font-size: 20px; margin-bottom: 15px; }
+  .price-card .price { font-size: 48px; font-weight: 900; color: #ff6b00; margin: 15px 0; }
+  .price-card .price span { font-size: 16px; color: #888; font-weight: normal; }
+  .price-card p.note { color: #999; font-size: 14px; }
+  .price-card.featured { border-color: #ff6b00; box-shadow: 0 0 30px rgba(255,107,0,.2); }
+  .price-card.featured::before {
+    content: 'الأكثر طلباً';
+    position: absolute; top: -12px; right: 50%; transform: translateX(50%);
+    background: #ff6b00; padding: 4px 15px; border-radius: 20px;
+    font-size: 12px; font-weight: bold;
+  }
+
+  /* المساج والحجامة */
+  .massage-section { background: linear-gradient(180deg, #0a0a0a, #141414); }
+  .massage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
+  .massage-card {
+    background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+    border-radius: 15px; padding: 30px 25px;
+    text-align: center; border: 1px solid #222; transition: .3s;
+  }
+  .massage-card:hover { border-color: #ff6b00; transform: translateY(-8px); }
+  .massage-card .icon { font-size: 50px; margin-bottom: 15px; }
+  .massage-card h3 { color: #ff6b00; margin-bottom: 10px; font-size: 20px; }
+  .massage-card .price { font-size: 36px; font-weight: 900; margin: 12px 0; }
+  .massage-card .price span { font-size: 14px; color: #888; }
+  .massage-card p.desc { color: #aaa; font-size: 14px; }
+
+  /* عرض الصحاب */
+  .offer-banner {
+    max-width: 900px; margin: 50px auto 0;
+    background: linear-gradient(135deg, #ff6b00, #ff9500);
+    border-radius: 20px; padding: 40px; text-align: center;
+    box-shadow: 0 15px 40px rgba(255,107,0,.3);
+  }
+  .offer-banner h3 { font-size: 32px; margin-bottom: 15px; color: #fff; font-weight: 900; }
+  .offer-banner p { font-size: 18px; color: #fff; margin-bottom: 20px; }
+  .offer-banner .price-big { font-size: 55px; font-weight: 900; color: #fff; text-shadow: 0 3px 10px rgba(0,0,0,.3); }
+  .offer-banner .price-big span { font-size: 20px; }
 
   /* الموقع */
-  .location { max-width: 1200px; margin: 0 auto; text-align: center; }
-  .location iframe { width: 100%; height: 400px; border-radius: 15px; border: 2px solid #ff6b00; margin-top: 20px; }
+  .location-section { text-align: center; }
+  .location-content { max-width: 900px; margin: 0 auto; }
+  .location-content p { font-size: 18px; margin-bottom: 25px; color: #ccc; }
 
   /* التواصل */
-  .contact { background: #1a1a1a; text-align: center; }
-  .contact .btn { font-size: 18px; padding: 18px 45px; }
+  .contact-section {
+    background: linear-gradient(180deg, #0f0f0f, #1a1a1a);
+    text-align: center;
+  }
+  .contact-buttons {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 15px; margin-top: 30px;
+  }
   .btn-wa { background: #25D366; }
-  .btn-wa:hover { background: #1ebe5b; }
+  .btn-wa:hover { background: #1ebe5b; box-shadow: 0 10px 25px rgba(37,211,102,.4); }
   .btn-fb { background: #1877F2; }
-  .btn-fb:hover { background: #0d65d9; }
+  .btn-fb:hover { background: #0d65d9; box-shadow: 0 10px 25px rgba(24,119,242,.4); }
+  .btn-map { background: #4285F4; }
+  .btn-map:hover { background: #2a75e6; box-shadow: 0 10px 25px rgba(66,133,244,.4); }
+
+  .contact-info {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 40px; margin-top: 50px; padding-top: 40px;
+    border-top: 1px solid #222;
+  }
+  .contact-info div h4 { color: #ff6b00; margin-bottom: 8px; font-size: 16px; }
+  .contact-info div p { color: #ccc; font-size: 16px; }
 
   /* الفوتر */
-  footer { background: #000; padding: 30px; text-align: center; color: #888; border-top: 2px solid #ff6b00; }
+  footer {
+    background: #000; padding: 30px; text-align: center;
+    color: #666; border-top: 2px solid #ff6b00;
+  }
+  footer .footer-logo { color: #ff6b00; font-size: 22px; font-weight: 900; margin-bottom: 10px; letter-spacing: 2px; }
 
+  /* زر الواتس العائم */
+  .float-wa {
+    position: fixed; bottom: 25px; left: 25px;
+    background: #25D366; width: 60px; height: 60px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 30px; text-decoration: none;
+    box-shadow: 0 8px 25px rgba(37,211,102,.5);
+    z-index: 99; transition: .3s;
+    animation: pulse 2s infinite;
+  }
+  .float-wa:hover { transform: scale(1.1); }
+  @keyframes pulse {
+    0% { box-shadow: 0 8px 25px rgba(37,211,102,.5); }
+    50% { box-shadow: 0 8px 35px rgba(37,211,102,.8); }
+    100% { box-shadow: 0 8px 25px rgba(37,211,102,.5); }
+  }
+
+  /* موبايل */
   @media (max-width: 768px) {
-    header { flex-direction: column; padding: 15px; }
-    nav { margin-top: 15px; }
-    nav a { margin: 0 8px; font-size: 14px; }
-    .hero h1 { font-size: 34px; }
-    .hero p { font-size: 18px; }
+    header { flex-direction: column; padding: 12px 15px; }
+    .logo { font-size: 22px; }
+    nav { margin-top: 12px; display: flex; flex-wrap: wrap; justify-content: center; }
+    nav a { margin: 5px 8px; font-size: 13px; }
+    .hero h1 { font-size: 48px; }
+    .hero .subtitle { font-size: 18px; }
+    .hero p { font-size: 16px; }
     section { padding: 50px 20px; }
     section h2 { font-size: 28px; }
+    .price-card .price { font-size: 38px; }
+    .offer-banner h3 { font-size: 22px; }
+    .offer-banner .price-big { font-size: 40px; }
+    .contact-info { gap: 20px; }
+    .float-wa { width: 55px; height: 55px; font-size: 26px; bottom: 15px; left: 15px; }
   }
 </style>
 </head>
@@ -102,10 +195,11 @@
 
 <!-- الهيدر -->
 <header>
-  <div class="logo">💪 IRON GYM</div>
+  <div class="logo">PUMP <span>GYM</span></div>
   <nav>
     <a href="#services">الخدمات</a>
-    <a href="#prices">الأسعار</a>
+    <a href="#prices">الاشتراكات</a>
+    <a href="#massage">المساج والحجامة</a>
     <a href="#location">الموقع</a>
     <a href="#contact">تواصل</a>
   </nav>
@@ -113,109 +207,161 @@
 
 <!-- الهيرو -->
 <div class="hero">
-  <h1>قوّي جسمك، ارتاح بالك</h1>
-  <p>جيم متكامل + غرفة مساج + علاج طبيعي</p>
+  <h1>PUMP GYM</h1>
+  <div class="subtitle">💪 ارفع مستواك معانا</div>
+  <p>جيم مجهز بالكامل + غرفة مساج + حجامة + علاج طبيعي</p>
   <div>
-    <a href="#prices" class="btn">شوف الأسعار</a>
-    <a href="#contact" class="btn">احجز الآن</a>
+    <a href="#prices" class="btn">شوف الاشتراكات</a>
+    <a href="https://chat.whatsapp.com/EwhGuGsQPiDFawYJIDvgRK?mode=gi_t" target="_blank" class="btn">انضم للجروب</a>
   </div>
 </div>
 
 <!-- الخدمات -->
 <section id="services">
   <h2>خدماتنا</h2>
+  <p class="section-sub">كل اللي محتاجه جسمك في مكان واحد</p>
   <div class="services">
     <div class="service-card">
       <div class="icon">🏋️</div>
       <h3>صالة الجيم</h3>
-      <p>أحدث الأجهزة الرياضية ومدربين محترفين لمتابعتك خطوة بخطوة</p>
+      <p>مجهزة بالكامل بأحدث الأجهزة الرياضية لكل التمارين</p>
     </div>
     <div class="service-card">
       <div class="icon">💆</div>
       <h3>غرفة المساج</h3>
-      <p>جلسات مساج استرخائية وعلاجية بأيدي متخصصين لراحة تامة</p>
+      <p>جلسات مساج استرخائية وعلاجية للراحة الكاملة</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">🩸</div>
+      <h3>الحجامة</h3>
+      <p>حجامة بأيدي متخصصين على أعلى مستوى</p>
     </div>
     <div class="service-card">
       <div class="icon">🩺</div>
       <h3>العلاج الطبيعي</h3>
       <p>جلسات علاج طبيعي لتأهيل الإصابات وتحسين الحركة</p>
     </div>
-    <div class="service-card">
-      <div class="icon">🥗</div>
-      <h3>برامج تغذية</h3>
-      <p>خطط غذائية مخصصة حسب هدفك: تنشيف، تضخيم، أو لياقة عامة</p>
+  </div>
+</section>
+
+<!-- الاشتراكات -->
+<section id="prices" style="background: #0f0f0f;">
+  <h2>اشتراكات الجيم</h2>
+  <p class="section-sub">اختار الباقة اللي تناسبك</p>
+  <div class="prices-grid">
+    <div class="price-card">
+      <h3>شهر</h3>
+      <div class="price">300 <span>ج.م</span></div>
+      <p class="note">اشتراك شهري</p>
+    </div>
+
+    <div class="price-card">
+      <h3>شهرين</h3>
+      <div class="price">550 <span>ج.م</span></div>
+      <p class="note">توفير 50 ج.م</p>
+    </div>
+
+    <div class="price-card featured">
+      <h3>3 شهور</h3>
+      <div class="price">800 <span>ج.م</span></div>
+      <p class="note">توفير 100 ج.م</p>
+    </div>
+
+    <div class="price-card">
+      <h3>6 شهور</h3>
+      <div class="price">1500 <span>ج.م</span></div>
+      <p class="note">توفير 300 ج.م</p>
+    </div>
+
+    <div class="price-card">
+      <h3>سنوي</h3>
+      <div class="price">2400 <span>ج.م</span></div>
+      <p class="note">أوفر باقة 🔥</p>
     </div>
   </div>
 </section>
 
-<!-- الأسعار -->
-<section id="prices">
-  <h2>باقات الأسعار</h2>
-  <div class="prices">
-    <div class="price-card">
-      <h3>الباقة الشهرية</h3>
-      <div class="price">500 <span>ج.م</span></div>
-      <ul>
-        <li>دخول غير محدود للجيم</li>
-        <li>متابعة من المدرب</li>
-        <li>خزانة شخصية</li>
-      </ul>
-      <a href="#contact" class="btn">اشترك</a>
+<!-- المساج والحجامة -->
+<section id="massage" class="massage-section">
+  <h2>المساج والحجامة</h2>
+  <p class="section-sub">استرخي واستعيد نشاطك</p>
+  <div class="massage-grid">
+    <div class="massage-card">
+      <div class="icon">🩸</div>
+      <h3>حجامة</h3>
+      <div class="price">400 <span>ج.م</span></div>
+      <p class="desc">جلسة حجامة كاملة</p>
     </div>
 
-    <div class="price-card" style="border-color:#ff6b00; transform: scale(1.05);">
-      <h3>الباقة الذهبية ⭐</h3>
-      <div class="price">900 <span>ج.م</span></div>
-      <ul>
-        <li>كل مميزات الباقة الشهرية</li>
-        <li>4 جلسات مساج شهرياً</li>
-        <li>برنامج تغذية مخصص</li>
-        <li>قياس نسبة الدهون</li>
-      </ul>
-      <a href="#contact" class="btn">اشترك</a>
+    <div class="massage-card">
+      <div class="icon">💆‍♂️</div>
+      <h3>مساج كامل للجسم</h3>
+      <div class="price">300 <span>ج.م</span></div>
+      <p class="desc">جلسة مساج استرخائي كامل</p>
     </div>
 
-    <div class="price-card">
-      <h3>العلاج الطبيعي</h3>
-      <div class="price">200 <span>ج.م / جلسة</span></div>
-      <ul>
-        <li>تقييم شامل للحالة</li>
-        <li>جلسة 45 دقيقة</li>
-        <li>متابعة أسبوعية</li>
-      </ul>
-      <a href="#contact" class="btn">احجز جلسة</a>
+    <div class="massage-card">
+      <div class="icon">✨</div>
+      <h3>مساج + حجامة</h3>
+      <div class="price">600 <span>ج.م</span></div>
+      <p class="desc">حجامة أمامي وخلفي + مساج كامل</p>
     </div>
+  </div>
+
+  <!-- عرض الصحاب -->
+  <div class="offer-banner">
+    <h3>🎉 عرض الصحاب</h3>
+    <p>حجامة + مساج كامل ليك انت وصاحبك</p>
+    <div class="price-big">1000 <span>ج.م</span></div>
   </div>
 </section>
 
 <!-- الموقع -->
-<section id="location">
+<section id="location" class="location-section">
   <h2>مكاننا فين؟</h2>
-  <div class="location">
-    <p style="font-size:18px; margin-bottom:15px;">📍 [اكتب عنوان الجيم هنا بالتفصيل]</p>
-    <!-- غيّر الرابط ده بموقعك الحقيقي من Google Maps -->
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.462!2d31.2357!3d30.0444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAyJzM5LjgiTiAzMcKwMTQnMDguNSJF!5e0!3m2!1sar!2seg!4v1234567890" 
-      allowfullscreen="" loading="lazy"></iframe>
+  <p class="section-sub">تعالى زورنا في أي وقت</p>
+  <div class="location-content">
+    <p>📍 اضغط على الزر تحت وهيفتحلك الموقع على الخريطة مباشرة</p>
+    <a href="https://maps.app.goo.gl/NKQiQTwkdBocFdfG7?g_st=ac" target="_blank" class="btn btn-map">📍 افتح الموقع على الخريطة</a>
   </div>
 </section>
 
 <!-- التواصل -->
-<section id="contact" class="contact">
+<section id="contact" class="contact-section">
   <h2>تواصل معنا</h2>
-  <p style="margin-bottom:30px; font-size:18px;">احجز مكانك دلوقتي أو استفسر عن أي حاجة</p>
-  
-  <!-- ⚠️ غيّر الأرقام والروابط دي بحساباتك الحقيقية -->
-  <a href="https://wa.me/201234567890" target="_blank" class="btn btn-wa">📱 واتساب</a>
-  <a href="https://facebook.com/yourpage" target="_blank" class="btn btn-fb">📘 فيسبوك</a>
-  <br><br>
-  <p>📞 رقمنا: <strong>0100 000 0000</strong></p>
+  <p class="section-sub">احجز مكانك أو استفسر عن أي حاجة</p>
+
+  <div class="contact-buttons">
+    <a href="https://chat.whatsapp.com/EwhGuGsQPiDFawYJIDvgRK?mode=gi_t" target="_blank" class="btn btn-wa">📱 جروب الواتساب</a>
+    <a href="https://www.facebook.com/share/19QHNrU1eb/" target="_blank" class="btn btn-fb">📘 صفحة الفيسبوك</a>
+    <a href="https://maps.app.goo.gl/NKQiQTwkdBocFdfG7?g_st=ac" target="_blank" class="btn btn-map">📍 الموقع</a>
+  </div>
+
+  <div class="contact-info">
+    <div>
+      <h4>🏋️ الجيم</h4>
+      <p>جيم مجهز بالكامل</p>
+    </div>
+    <div>
+      <h4>💆 المساج والحجامة</h4>
+      <p>غرفة مجهزة بأيدي متخصصين</p>
+    </div>
+    <div>
+      <h4>🩺 العلاج الطبيعي</h4>
+      <p>جلسات تأهيل متكاملة</p>
+    </div>
+  </div>
 </section>
 
 <!-- الفوتر -->
 <footer>
-  <p>© 2025 IRON GYM — جميع الحقوق محفوظة</p>
-  <p style="margin-top:10px;">صُمم بحب 💪</p>
+  <div class="footer-logo">PUMP GYM</div>
+  <p>© 2025 PUMP GYM — جميع الحقوق محفوظة</p>
+  <p style="margin-top:10px; font-size: 14px;">صُمم بـ 💪 لعشاق اللياقة</p>
 </footer>
 
+<!-- زر واتساب عائم -->
+<a href="https://chat.whatsapp.com/EwhGuGsQPiDFawYJIDvgRK?mode=gi_t" target="_blank" class="float-wa" title="انضم للجروب">💬</a>
+
 </body>
-    </html>
+ </html>
