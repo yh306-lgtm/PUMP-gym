@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>جيم [اسم الجيم] - لياقة، مساج، وعلاج طبيعي</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+  body { background: #0f0f0f; color: #fff; line-height: 1.7; }
+
+  /* الهيدر */
+  header {
+    background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+    padding: 20px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 2px solid #ff6b00;
+  }
+  .logo { font-size: 26px; font-weight: bold; color: #ff6b00; }
+  nav a { color: #fff; text-decoration: none; margin: 0 15px; transition: .3s; }
+  nav a:hover { color: #ff6b00; }
+
+  /* الهيرو */
+  .hero {
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.8)),
+                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600') center/cover;
+    height: 90vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 20px;
+  }
+  .hero h1 { font-size: 55px; color: #ff6b00; margin-bottom: 20px; }
+  .hero p { font-size: 22px; margin-bottom: 30px; }
+  .btn {
+    display: inline-block; padding: 15px 40px; background: #ff6b00;
+    color: #fff; text-decoration: none; border-radius: 50px;
+    font-weight: bold; transition: .3s; margin: 5px;
+  }
+  .btn:hover { background: #e55f00; transform: scale(1.05); }
+
+  /* الأقسام */
+  section { padding: 80px 40px; }
+  section h2 {
+    text-align: center; font-size: 40px; color: #ff6b00;
+    margin-bottom: 50px; position: relative;
+  }
+  section h2::after {
+    content: ''; width: 80px; height: 4px; background: #ff6b00;
+    display: block; margin: 15px auto 0;
+  }
+
+  /* الأسعار */
+  .prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+  .price-card {
+    background: #1a1a1a; border: 2px solid #333; border-radius: 15px;
+    padding: 40px 25px; text-align: center; transition: .3s;
+  }
+  .price-card:hover { border-color: #ff6b00; transform: translateY(-10px); }
+  .price-card h3 { color: #ff6b00; font-size: 24px; margin-bottom: 20px; }
+  .price-card .price { font-size: 45px; font-weight: bold; margin: 20px 0; }
+  .price-card .price span { font-size: 18px; color: #aaa; }
+  .price-card ul { list-style: none; margin: 25px 0; text-align: right; }
+  .price-card ul li { padding: 8px 0; border-bottom: 1px solid #222; }
+  .price-card ul li::before { content: '✓ '; color: #ff6b00; font-weight: bold; }
+
+  /* الخدمات */
+  .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+  .service-card {
+    background: #1a1a1a; padding: 35px 25px; border-radius: 15px;
+    text-align: center; border-top: 4px solid #ff6b00;
+  }
+  .service-card .icon { font-size: 50px; margin-bottom: 15px; }
+  .service-card h3 { margin-bottom: 15px; color: #ff6b00; }
+  .service-card p { color: #ccc; }
+
+  /* الموقع */
+  .location { max-width: 1200px; margin: 0 auto; text-align: center; }
+  .location iframe { width: 100%; height: 400px; border-radius: 15px; border: 2px solid #ff6b00; margin-top: 20px; }
+
+  /* التواصل */
+  .contact { background: #1a1a1a; text-align: center; }
+  .contact .btn { font-size: 18px; padding: 18px 45px; }
+  .btn-wa { background: #25D366; }
+  .btn-wa:hover { background: #1ebe5b; }
+  .btn-fb { background: #1877F2; }
+  .btn-fb:hover { background: #0d65d9; }
+
+  /* الفوتر */
+  footer { background: #000; padding: 30px; text-align: center; color: #888; border-top: 2px solid #ff6b00; }
+
+  @media (max-width: 768px) {
+    header { flex-direction: column; padding: 15px; }
+    nav { margin-top: 15px; }
+    nav a { margin: 0 8px; font-size: 14px; }
+    .hero h1 { font-size: 34px; }
+    .hero p { font-size: 18px; }
+    section { padding: 50px 20px; }
+    section h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- الهيدر -->
+<header>
+  <div class="logo">💪 IRON GYM</div>
+  <nav>
+    <a href="#services">الخدمات</a>
+    <a href="#prices">الأسعار</a>
+    <a href="#location">الموقع</a>
+    <a href="#contact">تواصل</a>
+  </nav>
+</header>
+
+<!-- الهيرو -->
+<div class="hero">
+  <h1>قوّي جسمك، ارتاح بالك</h1>
+  <p>جيم متكامل + غرفة مساج + علاج طبيعي</p>
+  <div>
+    <a href="#prices" class="btn">شوف الأسعار</a>
+    <a href="#contact" class="btn">احجز الآن</a>
+  </div>
+</div>
+
+<!-- الخدمات -->
+<section id="services">
+  <h2>خدماتنا</h2>
+  <div class="services">
+    <div class="service-card">
+      <div class="icon">🏋️</div>
+      <h3>صالة الجيم</h3>
+      <p>أحدث الأجهزة الرياضية ومدربين محترفين لمتابعتك خطوة بخطوة</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">💆</div>
+      <h3>غرفة المساج</h3>
+      <p>جلسات مساج استرخائية وعلاجية بأيدي متخصصين لراحة تامة</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">🩺</div>
+      <h3>العلاج الطبيعي</h3>
+      <p>جلسات علاج طبيعي لتأهيل الإصابات وتحسين الحركة</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">🥗</div>
+      <h3>برامج تغذية</h3>
+      <p>خطط غذائية مخصصة حسب هدفك: تنشيف، تضخيم، أو لياقة عامة</p>
+    </div>
+  </div>
+</section>
+
+<!-- الأسعار -->
+<section id="prices">
+  <h2>باقات الأسعار</h2>
+  <div class="prices">
+    <div class="price-card">
+      <h3>الباقة الشهرية</h3>
+      <div class="price">500 <span>ج.م</span></div>
+      <ul>
+        <li>دخول غير محدود للجيم</li>
+        <li>متابعة من المدرب</li>
+        <li>خزانة شخصية</li>
+      </ul>
+      <a href="#contact" class="btn">اشترك</a>
+    </div>
+
+    <div class="price-card" style="border-color:#ff6b00; transform: scale(1.05);">
+      <h3>الباقة الذهبية ⭐</h3>
+      <div class="price">900 <span>ج.م</span></div>
+      <ul>
+        <li>كل مميزات الباقة الشهرية</li>
+        <li>4 جلسات مساج شهرياً</li>
+        <li>برنامج تغذية مخصص</li>
+        <li>قياس نسبة الدهون</li>
+      </ul>
+      <a href="#contact" class="btn">اشترك</a>
+    </div>
+
+    <div class="price-card">
+      <h3>العلاج الطبيعي</h3>
+      <div class="price">200 <span>ج.م / جلسة</span></div>
+      <ul>
+        <li>تقييم شامل للحالة</li>
+        <li>جلسة 45 دقيقة</li>
+        <li>متابعة أسبوعية</li>
+      </ul>
+      <a href="#contact" class="btn">احجز جلسة</a>
+    </div>
+  </div>
+</section>
+
+<!-- الموقع -->
+<section id="location">
+  <h2>مكاننا فين؟</h2>
+  <div class="location">
+    <p style="font-size:18px; margin-bottom:15px;">📍 [اكتب عنوان الجيم هنا بالتفصيل]</p>
+    <!-- غيّر الرابط ده بموقعك الحقيقي من Google Maps -->
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.462!2d31.2357!3d30.0444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAyJzM5LjgiTiAzMcKwMTQnMDguNSJF!5e0!3m2!1sar!2seg!4v1234567890" 
+      allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- التواصل -->
+<section id="contact" class="contact">
+  <h2>تواصل معنا</h2>
+  <p style="margin-bottom:30px; font-size:18px;">احجز مكانك دلوقتي أو استفسر عن أي حاجة</p>
+  
+  <!-- ⚠️ غيّر الأرقام والروابط دي بحساباتك الحقيقية -->
+  <a href="https://wa.me/201234567890" target="_blank" class="btn btn-wa">📱 واتساب</a>
+  <a href="https://facebook.com/yourpage" target="_blank" class="btn btn-fb">📘 فيسبوك</a>
+  <br><br>
+  <p>📞 رقمنا: <strong>0100 000 0000</strong></p>
+</section>
+
+<!-- الفوتر -->
+<footer>
+  <p>© 2025 IRON GYM — جميع الحقوق محفوظة</p>
+  <p style="margin-top:10px;">صُمم بحب 💪</p>
+</footer>
+
+</body>
+    </html>
